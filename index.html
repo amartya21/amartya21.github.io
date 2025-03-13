@@ -16,7 +16,6 @@
     <link rel="icon" type="image/png" href="images/umd_seal.jpg">
     <script src="js/hidebib.js" type="text/javascript"></script>
 
-    <!-- Changed from <description> to a proper meta name="description": -->
     <meta name="description" content="Graduate student in Computer Science">
 
     <meta name="HandheldFriendly" content="True">
@@ -68,14 +67,18 @@
             <tr>
               <td>
                 <sectionheading id="activities">News and Past Activities</sectionheading>
-                <ul>
-                  <li>[Jan 2025]: Invited Talk at IIT Bombay</li>
-                  <li>[Dec 2024]: First Place in Poster &amp; Short Talks Competition at <a href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank">Data Science Week</a>, Purdue University</li>
-                  <li>[Oct 2024]: Our work on trajectory inference was covered by <a href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/" target="_blank">SIAM News</a></li>
-                  <li>[Oct 2024]: Poster presentation prize at <a href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank">SDSS Data Science Day</a></li>
-                  <li>[Aug 2024]: SIAM MDS24 Travel Award</li>
-                  <li>[Nov 2023]: TriCAMS at Duke University</li>
-                </ul>
+
+                <div style="width: 100%; max-height: 150px; overflow-y: scroll;">
+                  <ul>
+                    <li>[Feb 2025]: Columbia University Optimal Transport and Statistics Workshop Travel Award</li>
+                    <li>[Jan 2025]: Invited Talk at IIT Bombay</li>
+                    <li>[Dec 2024]: First Place in Poster &amp; Short Talks Competition at <a href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank">Data Science Week</a>, Purdue University</li>
+                    <li>[Oct 2024]: Our work on trajectory inference was covered by <a href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/" target="_blank">SIAM News</a></li>
+                    <li>[Oct 2024]: Poster presentation prize at <a href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank">SDSS Data Science Day</a></li>
+                    <li>[Aug 2024]: SIAM MDS24 Travel Award</li>
+                    <li>[Nov 2023]: TriCAMS at Duke University</li>
+                  </ul>
+                </div>
               </td>
             </tr>
           </table>
@@ -111,26 +114,31 @@
                 <strong>Amartya Banerjee</strong>, Harlin Lee, Nir Sharon, Caroline Moosm&uuml;ller.
                 <br>  <em>AISTATS</em>, 2025
                 <br>
-                <!-- CHANGED ID HERE: was id="2024_howso" -->
                 <div class="paper" id="2025_aistats">
                   <a href="https://arxiv.org/pdf/2405.19679">pdf</a>
                   | <a href="javascript:toggleblock('2025_wlr_abs')">abstract</a>
-                  | 
-                  <a shape="rect" class="togglebib" href="javascript:togglebib('2025_aistats')">bibtex</a>
-                  <!-- | <a href="https://github.com/howsoai/howso-engine">Code</a> -->
+                  | <a shape="rect" class="togglebib" href="javascript:togglebib('2025_aistats')">bibtex</a>
+                  | <a href="https://github.com/amartya21/Wasserstein-Trajectory-Inference">Code</a>
+                  | <a href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/">SIAM News</a>
                   <p align="justify"><i id="2025_wlr_abs">
-                    Capturing data from dynamic processes through cross-sectional measurements is seen in many fields such as computational biology. Trajectory inference deals with the challenge of reconstructing continuous processes from such observations. 
-                    In this work, we propose methods for B-spline approximation and interpolation of point clouds through consecutive averaging that is intrinsic to the Wasserstein space. Combining subdivision schemes with optimal transport-based geodesics,
-                    our methods carry out trajectory inference at a chosen level of precision and smoothness, and can automatically handle scenarios where particles undergo division over time. We rigorously evaluate our method by providing convergence guarantees 
-                    and testing it on simulated cell data characterized by bifurcations and merges, comparing its performance against state-of-the-art trajectory inference and interpolation methods. The results not only underscore the effectiveness of our method in inferring trajectories,
-                    but also highlight the benefit of performing interpolation and approximation that respect the inherent geometric properties of the data.
+                    Capturing data from dynamic processes through cross-sectional measurements is seen in many fields, such as computational biology. Trajectory 
+                    inference deals with the challenge of reconstructing continuous processes from such observations. In this work, we propose methods for B-spline 
+                    approximation and interpolation of point clouds through consecutive averaging that is intrinsic to the Wasserstein space. Combining subdivision 
+                    schemes with optimal transportbased geodesic, our methods carry out trajectory inference at a chosen level of precision and smoothness, and can 
+                    automatically handle scenarios where particles undergo division over time. We prove linear convergence rates and rigorously evaluate our method 
+                    on cell data characterized by bifurcations, merges, and trajectory splitting scenarios like supercells, comparing its performance against 
+                    state-of-the-art trajectory inference and interpolation methods. The results not only underscore the effectiveness of our method in inferring 
+                    trajectories but also highlight the benefit of performing interpolation and approximation that respect the inherent geometric properties of the 
+                    data.
                   </i></p>
                   <pre xml:space="preserve">
-@article{banerjee2024_wlr,
-  title={Efficient Trajectory Inference in Wasserstein Space Using Consecutive Averaging},
-  author={Banerjee, Amartya and Lee, Harlin and Sharon, Nir and Moosm{\"u}ller, Caroline},
-  journal={arXiv preprint arXiv:2405.19679},
-  year={2024}
+@inproceedings{
+banerjee2025efficient,
+title={Efficient Trajectory Inference in Wasserstein Space Using Consecutive Averaging},
+author={Amartya Banerjee and Harlin Lee and Nir Sharon and Caroline Moosm{\"u}ller},
+booktitle={The 28th International Conference on Artificial Intelligence and Statistics},
+year={2025},
+url={https://openreview.net/forum?id=ucyKTM7lO5}
 }
                   </pre>
                 </div>
@@ -300,6 +308,7 @@
               <td>
                 <sectionheading>Selected Awards</sectionheading>
                 <ul>
+                  <li><b>Columbia University Optimal Transport and Statistics Workshop Travel Award</b> (2025)</li>
                   <li><b>SDSS Data Science Day Poster Presentation Prize</b> (2024)</li>
                   <li><b>SIAM MDS24 Travel Award</b> (2024)</li>
                   <li><b>John D. Gannon Endowed Scholarship</b> (2018): Only international student to receive this merit-based scholarship
