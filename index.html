@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amartya Banerjee</title>
-  <meta name="description" content="Amartya Banerjee - PhD Student in Computer Science at UNC Chapel Hill. Research in Optimal Transport and Machine Learning." />
+  <meta name="description" content="Amartya Banerjee - Ph.D. Student in Computer Science at UNC Chapel Hill. Research in Optimal Transport and Machine Learning." />
   <link rel="canonical" href="https://amartya21.github.io/" />
   <meta name="theme-color" content="#0f172a" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Amartya Banerjee" />
-  <meta property="og:description" content="PhD Student, UNC Chapel Hill — Optimal Transport, ML" />
+  <meta property="og:description" content="Ph.D. Student, UNC Chapel Hill – Optimal Transport, ML" />
   <meta property="og:url" content="https://amartya21.github.io/" />
   <meta property="og:image" content="images/amartya.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Amartya Banerjee" />
-  <meta name="twitter:description" content="PhD Student, UNC Chapel Hill — Optimal Transport, ML" />
+  <meta name="twitter:description" content="Ph.D. Student, UNC Chapel Hill – Optimal Transport, ML" />
   <meta name="twitter:image" content="images/amartya.png" />
 
   <!-- Google Analytics -->
@@ -35,6 +35,11 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,6 +65,10 @@
     .section-heading {
       font-size: 1.75rem; font-weight: 600;
     }
+    /* Theme toggle icon transition */
+    .theme-icon {
+      transition: transform 0.3s ease;
+    }
   </style>
 
   <!-- Schema.org Person -->
@@ -69,7 +78,7 @@
     "@type": "Person",
     "name": "Amartya Banerjee",
     "image": "https://amartya21.github.io/images/amartya.png",
-    "jobTitle": "PhD Student",
+    "jobTitle": "Ph.D. Student",
     "affiliation": {
       "@type": "CollegeOrUniversity",
       "name": "University of North Carolina at Chapel Hill"
@@ -94,17 +103,17 @@
       <a href="#" class="text-lg font-semibold tracking-tight">Amartya Banerjee</a>
 
       <nav class="hidden md:flex items-center gap-6">
-        <a href="#about" class="hover:text-blue-600">About</a>
-        <a href="#news" class="hover:text-blue-600">News</a>
-        <a href="#research" class="hover:text-blue-600">Research</a>
-        <a href="#experience" class="hover:text-blue-600">Experience</a>
-        <a href="#awards" class="hover:text-blue-600">Awards</a>
-        <a href="#miscellaneous" class="hover:text-blue-600">Miscellaneous</a>
+        <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+        <a href="#news" class="hover:text-blue-600 dark:hover:text-blue-400">News</a>
+        <a href="#research" class="hover:text-blue-600 dark:hover:text-blue-400">Research</a>
+        <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
+        <a href="#awards" class="hover:text-blue-600 dark:hover:text-blue-400">Awards</a>
+        <a href="#miscellaneous" class="hover:text-blue-600 dark:hover:text-blue-400">Miscellaneous</a>
       </nav>
 
       <div class="flex items-center gap-2">
-        <button id="theme-toggle" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
-          <i class="fa-solid fa-moon"></i>
+        <button id="theme-toggle" class="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle dark mode">
+          <i id="theme-icon" class="fa-solid fa-moon theme-icon"></i>
         </button>
         <button id="mobile-menu-button" class="md:hidden text-2xl" aria-expanded="false" aria-controls="mobile-menu">
           <i class="fa-solid fa-bars"></i>
@@ -130,40 +139,37 @@
       <div class="flex flex-col md:flex-row items-center gap-10">
         <div class="md:w-2/3">
           <h1 class="text-4xl font-bold mb-2">Amartya Banerjee</h1>
-          <p class="text-lg text-slate-600 dark:text-slate-300 mb-4">PhD Student, University of North Carolina, Chapel Hill</p>
+          <p class="text-lg text-slate-600 dark:text-slate-300 mb-4">Ph.D. Student, University of North Carolina, Chapel Hill</p>
           <p class="mb-4 leading-relaxed">
-            I am a PhD student in the <a href="https://cs.unc.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Department of Computer Science</a> at
-            <a href="https://www.unc.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">UNC, Chapel Hill</a>. I am extremely fortunate to be advised by
+            I am a Ph.D. student in the <a href="https://cs.unc.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Department of Computer Science</a> at
+            <a href="https://www.unc.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">UNC, Chapel Hill</a>. I am fortunate to be advised by
             <a href="https://harlinlee.github.io/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Prof. Harlin Lee</a> and
             <a href="https://math.unc.edu/faculty-member/moosmueller-caroline/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Prof. Caroline Moosmueller</a>.
             I am also a member of <a href="https://tarheels.live/cmoosm/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Geometric Data Analysis @ UNC</a>.
-            Broadly, my research interests revolve around problems in Optimal Transport and Machine Learning.
+            Broadly, my research interests revolve around problems in Optimal Transport and Machine Learning, with applications in science and engineering. More specifically, I am interested 
+            in generative approaches such as flow matching and diffusion, along with geometric and stochastic algorithms for efficient learning and inference in high-dimensional data.
           </p>
           <p class="mb-4 leading-relaxed">
-            Prior to joining my PhD, I graduated with a double major in Mathematics and Computer Science from the
+            Prior to joining my Ph.D., I graduated with a double major in Mathematics and Computer Science from the
             <a href="https://www.umd.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">University of Maryland, College Park</a>
             followed by a Master's in <a href="https://www.cs.umd.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Computer Science</a>, also from UMD.
           </p>
-          <p class="mb-6 text-sm text-slate-500 italic">
+          <p class="mb-6 text-sm text-slate-500 dark:text-slate-400 italic">
             <span class="text-slate-900 dark:text-slate-100">Fun Fact: I have an Erdos number of 3.</span>
           </p>
           <div class="flex flex-wrap items-center gap-3">
-            <a href="mailto:amartya1@cs.unc.edu" class="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white" aria-label="Email Amartya">
+            <a href="mailto:amartya1@cs.unc.edu" class="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-lg hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white transition-colors" aria-label="Email Amartya">
               <i class="fa-solid fa-envelope"></i> Email
             </a>
-            <a href="https://scholar.google.com/citations?user=3ZItW_UAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-5xl text-slate-600 hover:text-blue-600" aria-label="Google Scholar">
+            <a href="https://scholar.google.com/citations?user=3ZItW_UAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-5xl text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors" aria-label="Google Scholar">
               <i class="ai ai-google-scholar"></i>
             </a>
-            <a href="https://github.com/amartya21" target="_blank" rel="noopener noreferrer" class="text-5xl text-slate-600 hover:text-blue-600" aria-label="GitHub">
+            <a href="https://github.com/amartya21" target="_blank" rel="noopener noreferrer" class="text-5xl text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors" aria-label="GitHub">
               <i class="fa-brands fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/amartya1" target="_blank" rel="noopener noreferrer" class="text-5xl text-slate-600 hover:text-blue-600" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/amartya1" target="_blank" rel="noopener noreferrer" class="text-5xl text-slate-600 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin"></i>
             </a>
-            <!-- CV button 
-            <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 border border-slate-300 px-4 py-2 rounded-lg hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800" aria-label="CV">
-              <i class="fa-regular fa-file-lines"></i> CV
-            </a> -->
           </div>
         </div>
         <div class="md:w-1/3">
@@ -177,12 +183,14 @@
       <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">News & Activities</h2>
       <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm max-h-60 overflow-y-auto" aria-label="Recent news">
         <ul class="space-y-3 list-disc list-inside text-slate-700 dark:text-slate-200">
+            <li><span class="font-semibold">[Sep 2025]:</span> Our protein design work featured in <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://www.unc.edu/posts/2025/09/16/ai-acceleration-program-helps-student-design-proteins/" target="_blank" rel="noopener noreferrer">UNC News</a> and <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://its.unc.edu/2025/09/12/amartya-banerjee-protein-design-aiap/" target="_blank" rel="noopener noreferrer">ITS News</a></li>
+            <li><span class="font-semibold">[Sep 2025]:</span> Co-organized the <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen</li>
             <li><span class="font-semibold">[May 2025]:</span> Interning at Amazon (Prime Video & Studios CoreTech Team) over summer</li>
             <li><span class="font-semibold">[Feb 2025]:</span> Columbia University Optimal Transport and Statistics Workshop Travel Award</li>
             <li><span class="font-semibold">[Jan 2025]:</span> Invited Talk at IIT Bombay</li>
-            <li><span class="font-semibold">[Dec 2024]:</span> First Place in Poster & Short Talks Competition at <a class="text-blue-600 hover:underline" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University</li>
-            <li><span class="font-semibold">[Oct 2024]:</span> Our work on trajectory inference was covered by <a class="text-blue-600 hover:underline" href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/" target="_blank" rel="noopener noreferrer">SIAM News</a></li>
-            <li><span class="font-semibold">[Oct 2024]:</span> Poster presentation prize at <a class="text-blue-600 hover:underline" href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank" rel="noopener noreferrer">SDSS Data Science Day</a></li>
+            <li><span class="font-semibold">[Dec 2024]:</span> First Place in Poster & Short Talks Competition at <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University</li>
+            <li><span class="font-semibold">[Oct 2024]:</span> Our work on trajectory inference was covered by <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/" target="_blank" rel="noopener noreferrer">SIAM News</a></li>
+            <li><span class="font-semibold">[Oct 2024]:</span> Poster presentation prize at <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank" rel="noopener noreferrer">SDSS Data Science Day</a></li>
             <li><span class="font-semibold">[Aug 2024]:</span> SIAM MDS24 Travel Award</li>
             <li><span class="font-semibold">[Nov 2023]:</span> TriCAMS at Duke University</li>
         </ul>
@@ -195,8 +203,8 @@
         <h2 class="section-heading border-b border-slate-200 pb-2 dark:border-slate-700">Research</h2>
         <div class="flex items-center gap-2">
           <label for="search" class="sr-only">Search publications</label>
-          <input id="search" type="search" placeholder="Search title/authors" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-64 dark:bg-slate-800 dark:border-slate-700" />
-          <select id="year-filter" class="rounded-lg border border-slate-300 px-3 py-2 text-sm dark:bg-slate-800 dark:border-slate-700">
+          <input id="search" type="search" placeholder="Search title/authors" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-64 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-400" />
+          <select id="year-filter" class="rounded-lg border border-slate-300 px-3 py-2 text-sm dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100">
             <option value="all">All years</option>
           </select>
         </div>
@@ -210,19 +218,19 @@
         <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Professional Experience</h2>
         <div class="space-y-4">
           <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm">
-            <p class="font-semibold"><a href="https://www.amazon.science/" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Amazon, Seattle</a></p>
+            <p class="font-semibold"><a href="https://www.amazon.science/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Amazon, Seattle</a></p>
             <p class="text-sm text-slate-600 dark:text-slate-300">Applied Scientist (Prime Video & Studios CoreTech), Summer 2025</p>
-            <p class="text-xs text-slate-500 mt-1">Topic: Causal Inference and Reinforcement Learning</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Topic: Causal Inference and Reinforcement Learning</p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm">
-            <p class="font-semibold"><a href="https://www.cmu.edu/" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Carnegie Mellon University, Pittsburgh</a></p>
+            <p class="font-semibold"><a href="https://www.cmu.edu/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Carnegie Mellon University, Pittsburgh</a></p>
             <p class="text-sm text-slate-600 dark:text-slate-300">Visiting Researcher, Summer 2024</p>
-            <p class="text-xs text-slate-500 mt-1">Topic: Diffusion Models and Inverse Problems</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Topic: Diffusion Models and Inverse Problems</p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm">
-            <p class="font-semibold"><a href="https://www.howso.com/" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Howso (Formerly Diveplane)</a></p>
+            <p class="font-semibold"><a href="https://www.howso.com/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Howso (Formerly Diveplane)</a></p>
             <p class="text-sm text-slate-600 dark:text-slate-300">Research Intern, Summer 2023</p>
-            <p class="text-xs text-slate-500 mt-1">Topic: Anomaly Detection</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Topic: Anomaly Detection</p>
           </div>
         </div>
       </section>
@@ -231,30 +239,29 @@
         <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Selected Awards</h2>
         <div class="space-y-3">
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">Columbia University Optimal Transport and Statistics Workshop Travel Award <span class="text-sm text-slate-500">(2025)</span></p>
+            <p class="font-semibold">Columbia University Optimal Transport and Statistics Workshop Travel Award <span class="text-sm text-slate-500 dark:text-slate-400">(2025)</span></p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">First Place in Poster & Short Talks Competition at <a class="text-blue-600 hover:underline" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University</li> <span class="text-sm text-slate-500">(2024)</span></p>
+            <p class="font-semibold">First Place in Poster & Short Talks Competition at <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University <span class="text-sm text-slate-500 dark:text-slate-400">(2024)</span></p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">SDSS Data Science Day Poster Presentation Prize <span class="text-sm text-slate-500">(2024)</span></p>
+            <p class="font-semibold">SDSS Data Science Day Poster Presentation Prize <span class="text-sm text-slate-500 dark:text-slate-400">(2024)</span></p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">SIAM MDS24 Travel Award <span class="text-sm text-slate-500">(2024)</span></p>
+            <p class="font-semibold">SIAM MDS24 Travel Award <span class="text-sm text-slate-500 dark:text-slate-400">(2024)</span></p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">John D. Gannon Endowed Scholarship <span class="text-sm text-slate-500">(2018)</span></p>
+            <p class="font-semibold">John D. Gannon Endowed Scholarship <span class="text-sm text-slate-500 dark:text-slate-400">(2018)</span></p>
           </div>
         </div>
       </section>
     </div>
 
-
-
     <section id="miscellaneous" class="mt-12 mb-16">
       <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Miscellaneous</h2>
       <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
         <ul class="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-200">
+          <li><span class="font-bold">Workshop Organizer:</span> Co-organized the <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen (Sept 2025)</li>
           <li><span class="font-bold">Reviewer:</span> NeurIPS 2025, CAMSAP 2025, Learning on Graphs (LoG) 2025</li>
           <li><span class="font-bold">Teaching Recitations:</span> DATA110 Introduction to Data Science (AY 2024, 2025)</li>
             <ul class="list-none ml-6 mt-1 space-y-1">
@@ -272,12 +279,11 @@
   <footer class="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 mt-16">
     <div class="container mx-auto px-6 py-8 text-center text-slate-600 dark:text-slate-400">
       <p>&copy; <span id="current-year"></span> Amartya Banerjee. All rights reserved.</p>
-      <!-- <p class="text-xs mt-2">Last updated <span id="last-updated"></span></p> -->
     </div>
   </footer>
 
   <!-- Back to top -->
-  <button id="back-to-top" class="fixed bottom-5 right-5 hidden rounded-full border border-slate-300 bg-white/90 px-3 py-2 text-sm shadow-md backdrop-blur hover:bg-white dark:bg-slate-800/90 dark:border-slate-700" aria-label="Back to top">↑ Top</button>
+  <button id="back-to-top" class="fixed bottom-5 right-5 hidden rounded-full border border-slate-300 bg-white/90 px-3 py-2 text-sm shadow-md backdrop-blur hover:bg-white dark:bg-slate-800/90 dark:border-slate-700 dark:text-slate-200 transition-all" aria-label="Back to top">↑ Top</button>
 
   <script>
     // ---- Publications data  ----
@@ -286,13 +292,15 @@
       {
       id: 'adam-pnp-2025',
       year: '2025',
-      venue: 'arXiv',
+      venue: 'IEEE CAMSAP',
       title: 'Adaptive Multimodal Protein Plug-and-Play with Diffusion-Based Priors',
       authors: '<strong>Amartya Banerjee</strong>, Xingyu Xu, Caroline Moosmüller, Harlin Lee.',
       pdfLink: 'https://arxiv.org/abs/2507.21260v1',
-      imageSrc: 'https://raw.githubusercontent.com/amartya21/Adam-PnP/refs/heads/main/assets/ground_truth.gif', // add this image, or leave as-is to fall back to the placeholder
+      imageSrc: 'https://raw.githubusercontent.com/amartya21/Adam-PnP/refs/heads/main/assets/ground_truth.gif',
       links: [
-        { name: 'Code', url: 'https://github.com/amartya21/Adam-PnP', color: 'green' }
+        { name: 'Code', url: 'https://github.com/amartya21/Adam-PnP', color: 'green' },
+        { name: 'UNC News', url: 'https://www.unc.edu/posts/2025/09/16/ai-acceleration-program-helps-student-design-proteins/', color: 'yellow' },
+        { name: 'ITS News', url: 'https://its.unc.edu/2025/09/12/amartya-banerjee-protein-design-aiap/', color: 'yellow' }
       ],
       abstract: `In an inverse problem, the goal is to recover an unknown parameter (e.g., an image) that has typically undergone some lossy or noisy transformation during measurement. Recently, deep generative models, particularly diffusion models, have emerged as powerful priors for protein structure generation. However, integrating noisy experimental data from multiple sources to guide these models remains a significant challenge. Existing methods often require precise knowledge of experimental noise levels and manually tuned weights for each data modality. In this work, we introduce Adam-PnP, a Plug-and-Play framework that guides a pre-trained protein diffusion model using gradients from multiple, heterogeneous experimental sources. Our framework features an adaptive noise estimation scheme and a dynamic modality weighting mechanism integrated into the diffusion process, which reduce the need for manual hyperparameter tuning. Experiments on complex reconstruction tasks demonstrate significantly improved accuracy using Adam-PnP.`,
       bibtex: `@misc{banerjee2025adaptivemultimodalproteinplugandplay,
@@ -305,7 +313,6 @@
       url={https://arxiv.org/abs/2507.21260},
       }`
       },
-
 
       {
         id: 'aistats2025',
@@ -379,7 +386,7 @@
         pdfLink: 'https://arxiv.org/pdf/2008.08183.pdf',
         imageSrc: 'images/teaser_fig/kneser_ex.png',
         links: [ { name: 'Code', url: 'https://github.com/aostuni/kneser-toughness', color: 'green' } ],
-        abstract: `The toughness t(G) of a graph G is a measure of its connectivity that is closely related to Hamiltonicity. Xiaofeng Gu, confirming a longstanding conjecture of Brouwer, recently proved the lower bound t(G) ≥ ℓ/λ−1 on the toughness of any connected ℓ-regular graph, where λ is the largest nontrivial absolute eigenvalue of the adjacency matrix. Brouwer had also observed that many families of graphs (in particular, those achieving equality in the Hoffman ratio bound for the independence number) have toughness exactly ℓ/λ. Cioabă and Wong confirmed Brouwer’s observation for several families of graphs, including Kneser graphs K(n, 2) and their complements, with the exception of the Petersen graph K(5, 2). In this paper, we extend these results and determine the toughness of Kneser graphs K(n, k) when k ∈ {3, 4} and n ≥ 2k + 1 as well as for k ≥ 5 and sufficiently large n (in terms of k). In all these cases, the toughness is attained by the complement of a maximum independent set and we conjecture that this is the case for any k ≥ 5 and n ≥ 2k + 1.`,
+        abstract: `The toughness t(G) of a graph G is a measure of its connectivity that is closely related to Hamiltonicity. Xiaofeng Gu, confirming a longstanding conjecture of Brouwer, recently proved the lower bound t(G) ≥ ℓ/λ−1 on the toughness of any connected ℓ-regular graph, where λ is the largest nontrivial absolute eigenvalue of the adjacency matrix. Brouwer had also observed that many families of graphs (in particular, those achieving equality in the Hoffman ratio bound for the independence number) have toughness exactly ℓ/λ. Cioabă and Wong confirmed Brouwer's observation for several families of graphs, including Kneser graphs K(n, 2) and their complements, with the exception of the Petersen graph K(5, 2). In this paper, we extend these results and determine the toughness of Kneser graphs K(n, k) when k ∈ {3, 4} and n ≥ 2k + 1 as well as for k ≥ 5 and sufficiently large n (in terms of k). In all these cases, the toughness is attained by the complement of a maximum independent set and we conjecture that this is the case for any k ≥ 5 and n ≥ 2k + 1.`,
         bibtex: `@article{PARK2021112484,\ntitle     = {The toughness of Kneser graphs},\njournal   = {Discrete Mathematics},\nvolume    = {344},\nnumber    = {9},\npages     = {112484},\nyear      = {2021},\nissn      = {0012-365X},\ndoi       = {https://doi.org/10.1016/j.disc.2021.112484},\nauthor    = {Davin Park and Anthony Ostuni and Nathan Hayes and\n             Amartya Banerjee and Tanay Wakhare and Wiseley Wong \n             and Sebastian Cioab{\u{a}}},\nkeywords  = {Kneser graph, Graph connectivity, Toughness}\n}`
       }
     ];
@@ -409,7 +416,7 @@
           <div class="w-full md:w-3/4">
             <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">${p.venue} ${p.year}</p>
             <h3 class="text-xl font-semibold mb-1">
-              <a href="${p.pdfLink}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">${p.title}</a>
+              <a href="${p.pdfLink}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-400">${p.title}</a>
             </h3>
             <p class="text-sm text-slate-700 dark:text-slate-300 mb-3">${p.authors}</p>
 
@@ -445,7 +452,7 @@
       const q = document.getElementById('search').value.trim().toLowerCase();
       const yf = document.getElementById('year-filter').value;
       const filtered = publications
-        .slice() // do not mutate original
+        .slice()
         .sort((a,b) => b.year.localeCompare(a.year))
         .filter(p => (yf === 'all' || p.year === yf))
         .filter(p =>
@@ -454,6 +461,18 @@
           p.venue.toLowerCase().includes(q)
         );
       renderPublications(filtered);
+    }
+
+    // ---- Update theme icon ----
+    function updateThemeIcon() {
+      const icon = document.getElementById('theme-icon');
+      if (document.documentElement.classList.contains('dark')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
     }
 
     // ---- UI wiring on load ----
@@ -495,20 +514,44 @@
         mobileBtn.setAttribute('aria-expanded', (!isHidden).toString());
       });
 
-      // Theme toggle (persist to localStorage)
+      // Theme toggle
       const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      
+      // Initialize theme on page load
+      const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || (!saved && prefersDark)) document.documentElement.classList.add('dark');
+      
+      console.log('Initializing theme...');
+      console.log('Saved theme:', savedTheme);
+      console.log('System prefers dark:', prefersDark);
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        html.classList.add('dark');
+        console.log('Setting dark mode');
+      } else {
+        html.classList.remove('dark');
+        console.log('Setting light mode');
+      }
+      updateThemeIcon();
+      
+      // Toggle theme on button click
       themeToggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        console.log('Theme toggle clicked!');
+        html.classList.toggle('dark');
+        const isDark = html.classList.contains('dark');
+        console.log('Dark mode now:', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcon();
+        
+        themeToggle.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          themeToggle.style.transform = 'scale(1)';
+        }, 100);
       });
 
       // Footer dates
-      // document.getElementById('current-year').textContent = new Date().getFullYear();
       document.getElementById('current-year').textContent = 2025;
-      document.getElementById('last-updated').textContent = new Date(document.lastModified).toLocaleDateString();
 
       // Back to top button
       const backTop = document.getElementById('back-to-top');
