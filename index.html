@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amartya Banerjee</title>
-  <meta name="description" content="Amartya Banerjee - Ph.D. Student in Computer Science at UNC Chapel Hill. Research in Optimal Transport and Machine Learning." />
+  <meta name="description" content="Amartya Banerjee - Ph.D. Student in Computer Science at UNC Chapel Hill. Research in Optimal Transport, generative models, and AI for Science." />
   <link rel="canonical" href="https://amartya21.github.io/" />
   <meta name="theme-color" content="#0f172a" />
 
@@ -13,13 +13,13 @@
   <meta property="og:title" content="Amartya Banerjee" />
   <meta property="og:description" content="Ph.D. Student, UNC Chapel Hill – Optimal Transport, ML" />
   <meta property="og:url" content="https://amartya21.github.io/" />
-  <meta property="og:image" content="images/amartya.png" />
+  <meta property="og:image" content="images/amartya.jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Amartya Banerjee" />
   <meta name="twitter:description" content="Ph.D. Student, UNC Chapel Hill – Optimal Transport, ML" />
-  <meta name="twitter:image" content="images/amartya.png" />
+  <meta name="twitter:image" content="images/amartya.jpeg" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52138338-2"></script>
@@ -31,7 +31,7 @@
   </script>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/umd_seal.jpg" />
+  <link rel="icon" type="image/jpeg" href="images/amartya.jpeg" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -57,11 +57,44 @@
     body {
       font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
-    /* Collapsible panels */
-    .collapsible-content {
-      max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+
+    /* Text selection.
+       Without an explicit `color` the browser paints its highlight *behind* each
+       element's own text colour, so muted grey and amber text wash out when
+       selected (worst in dark mode). Setting both halves of the pair fixes it.
+       ::selection and ::-moz-selection must stay in separate rules: a browser
+       that doesn't recognise one selector would otherwise drop the whole block. */
+    ::selection {
+      background-color: #bfdbfe; /* blue-200 */
+      color: #0f172a;            /* slate-900 */
     }
-    .collapsible-content.show { max-height: 1000px; }
+    ::-moz-selection {
+      background-color: #bfdbfe;
+      color: #0f172a;
+    }
+    .dark ::selection {
+      background-color: #1d4ed8; /* blue-700 */
+      color: #f8fafc;            /* slate-50 */
+    }
+    .dark ::-moz-selection {
+      background-color: #1d4ed8;
+      color: #f8fafc;
+    }
+    /* Collapsible panels.
+       The :not(.show) / .show selectors are two classes deep on purpose: they must
+       outrank Tailwind's single-class utilities (p-4, mt-3, border), whose stylesheet
+       the CDN injects after this block. */
+    .collapsible-content {
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+    }
+    .collapsible-content:not(.show) {
+      max-height: 0;
+      padding-top: 0; padding-bottom: 0;
+      margin-top: 0;
+      border-top-width: 0; border-bottom-width: 0;
+    }
+    .collapsible-content.show { max-height: 2500px; }
     .section-heading {
       font-size: 1.75rem; font-weight: 600;
     }
@@ -69,6 +102,45 @@
     .theme-icon {
       transition: transform 0.3s ease;
     }
+
+    /* News timeline items */
+    .news-item {
+      position: relative;
+      padding-left: 1.25rem;
+      line-height: 1.6;
+    }
+    .news-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.6rem;
+      width: 7px; height: 7px;
+      border-radius: 9999px;
+      background-color: #2563eb;  /* blue-600 */
+    }
+    .dark .news-item::before { background-color: #60a5fa; } /* blue-400 */
+    .news-date {
+      display: inline-block;
+      margin-right: 0.5rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      background-color: #e2e8f0;  /* slate-200 */
+      color: #334155;             /* slate-700 */
+    }
+    .dark .news-date { background-color: #334155; color: #cbd5e1; }
+    .news-link { color: #2563eb; }
+    .news-link:hover { text-decoration: underline; }
+    .dark .news-link { color: #60a5fa; }
+
+    /* Subtle scrollbar for the news panel */
+    .news-scroll { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+    .news-scroll::-webkit-scrollbar { width: 8px; }
+    .news-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 9999px; }
+    .dark .news-scroll { scrollbar-color: #475569 transparent; }
+    .dark .news-scroll::-webkit-scrollbar-thumb { background-color: #475569; }
   </style>
 
   <!-- Schema.org Person -->
@@ -77,7 +149,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Amartya Banerjee",
-    "image": "https://amartya21.github.io/images/amartya.png",
+    "image": "https://amartya21.github.io/images/amartya.jpeg",
     "jobTitle": "Ph.D. Student",
     "affiliation": {
       "@type": "CollegeOrUniversity",
@@ -102,13 +174,14 @@
     <div class="container mx-auto px-6 py-3 flex items-center justify-between">
       <a href="#" class="text-lg font-semibold tracking-tight">Amartya Banerjee</a>
 
-      <nav class="hidden md:flex items-center gap-6">
+      <nav class="hidden md:flex items-center gap-5 text-sm lg:text-base lg:gap-6">
         <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
         <a href="#news" class="hover:text-blue-600 dark:hover:text-blue-400">News</a>
         <a href="#research" class="hover:text-blue-600 dark:hover:text-blue-400">Research</a>
         <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
         <a href="#awards" class="hover:text-blue-600 dark:hover:text-blue-400">Awards</a>
-        <a href="#miscellaneous" class="hover:text-blue-600 dark:hover:text-blue-400">Miscellaneous</a>
+        <a href="#talks" class="hover:text-blue-600 dark:hover:text-blue-400">Talks</a>
+        <a href="#miscellaneous" class="hover:text-blue-600 dark:hover:text-blue-400">Service</a>
       </nav>
 
       <div class="flex items-center gap-2">
@@ -128,7 +201,8 @@
         <a href="#research" class="block py-1">Research</a>
         <a href="#experience" class="block py-1">Experience</a>
         <a href="#awards" class="block py-1">Awards</a>
-        <a href="#miscellaneous" class="block py-1">Miscellaneous</a>
+        <a href="#talks" class="block py-1">Talks</a>
+        <a href="#miscellaneous" class="block py-1">Service</a>
       </div>
     </div>
   </header>
@@ -146,13 +220,19 @@
             <a href="https://harlinlee.github.io/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Prof. Harlin Lee</a> and
             <a href="https://math.unc.edu/faculty-member/moosmueller-caroline/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Prof. Caroline Moosmueller</a>.
             I am also a member of <a href="https://tarheels.live/cmoosm/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Geometric Data Analysis @ UNC</a>.
-            Broadly, my research interests revolve around problems in Optimal Transport and Machine Learning, with applications in science and engineering. More specifically, I am interested 
-            in generative approaches such as flow matching and diffusion, along with geometric and stochastic algorithms for efficient learning and inference in high-dimensional data.
+            Broadly, my research interests revolve around problems in Optimal Transport and Machine Learning, with applications in science and engineering. More specifically, I am interested in
+            generative approaches such as flow matching and diffusion, along with geometric and stochastic algorithms for efficient learning and inference in high-dimensional data.
+            A common thread across this work is learning paths through structured spaces, which has lately taken me toward <span class="font-medium">AI for Science</span>, from protein
+            structure determination to drug design.
           </p>
           <p class="mb-4 leading-relaxed">
             Prior to joining my Ph.D., I graduated with a double major in Mathematics and Computer Science from the
             <a href="https://www.umd.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">University of Maryland, College Park</a>
             followed by a Master's in <a href="https://www.cs.umd.edu/" class="text-blue-600 hover:underline" rel="noopener noreferrer" target="_blank">Computer Science</a>, also from UMD.
+          </p>
+          <p class="mb-4 rounded-lg border-l-4 border-amber-400 bg-amber-50 px-4 py-3 text-sm leading-relaxed text-slate-800 dark:border-amber-500 dark:bg-amber-950/30 dark:text-slate-100">
+            I expect to defend my Ph.D. in May 2027 and am currently seeking <span class="font-semibold">Postdoctoral and Research Scientist roles across academia and industry</span>, starting Summer or Fall 2027.
+            Please <a href="mailto:amartya1@cs.unc.edu" class="text-blue-700 underline hover:no-underline dark:text-blue-300">reach out</a> if you have a relevant role.
           </p>
           <p class="mb-6 text-sm text-slate-500 dark:text-slate-400 italic">
             <span class="text-slate-900 dark:text-slate-100">Fun Fact: I have an Erdos number of 3.</span>
@@ -173,103 +253,205 @@
           </div>
         </div>
         <div class="md:w-1/3">
-          <img src="images/amartya.png" alt="Portrait of Amartya Banerjee" class="rounded-xl shadow-lg w-full max-w-xs mx-auto md:max-w-full" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/480x480/e2e8f0/334155?text=Image+Not+Found';" />
+          <img src="images/amartya.jpeg" alt="Portrait of Amartya Banerjee" class="rounded-xl shadow-lg w-full max-w-xs mx-auto md:max-w-full" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/480x480/e2e8f0/334155?text=Image+Not+Found';" />
         </div>
       </div>
     </section>
 
     <!-- News -->
     <section id="news" class="mb-16">
-      <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">News & Activities</h2>
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm max-h-60 overflow-y-auto" aria-label="Recent news">
-        <ul class="space-y-3 list-disc list-inside text-slate-700 dark:text-slate-200">
-            <li><span class="font-semibold">[Sep 2025]:</span> Our protein design work featured in <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://www.unc.edu/posts/2025/09/16/ai-acceleration-program-helps-student-design-proteins/" target="_blank" rel="noopener noreferrer">UNC News</a> and <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://its.unc.edu/2025/09/12/amartya-banerjee-protein-design-aiap/" target="_blank" rel="noopener noreferrer">ITS News</a></li>
-            <li><span class="font-semibold">[Sep 2025]:</span> Co-organized the <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen</li>
-            <li><span class="font-semibold">[May 2025]:</span> Interning at Amazon (Prime Video & Studios CoreTech Team) over summer</li>
-            <li><span class="font-semibold">[Feb 2025]:</span> Columbia University Optimal Transport and Statistics Workshop Travel Award</li>
-            <li><span class="font-semibold">[Jan 2025]:</span> Invited Talk at IIT Bombay</li>
-            <li><span class="font-semibold">[Dec 2024]:</span> First Place in Poster & Short Talks Competition at <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University</li>
-            <li><span class="font-semibold">[Oct 2024]:</span> Our work on trajectory inference was covered by <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/" target="_blank" rel="noopener noreferrer">SIAM News</a></li>
-            <li><span class="font-semibold">[Oct 2024]:</span> Poster presentation prize at <a class="text-blue-600 hover:underline dark:text-blue-400 dark:hover:underline" href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank" rel="noopener noreferrer">SDSS Data Science Day</a></li>
-            <li><span class="font-semibold">[Aug 2024]:</span> SIAM MDS24 Travel Award</li>
-            <li><span class="font-semibold">[Nov 2023]:</span> TriCAMS at Duke University</li>
+      <div class="flex items-baseline justify-between mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">
+        <h2 class="section-heading">News &amp; Activities</h2>
+        <span class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">scroll for more ↓</span>
+      </div>
+      <div class="news-scroll bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm max-h-[26rem] overflow-y-auto" aria-label="Recent news">
+        <ul class="space-y-4 text-slate-700 dark:text-slate-200">
+            <li class="news-item"><span class="news-date">Aug 2026</span> Wrapped up a second summer as an Applied Scientist at <span class="font-medium">Amazon</span> (Prime Video &amp; Studios CoreTech), working with the Personalization and Recommendations team on cross-domain retrieval for Prime Video titles</li>
+            <li class="news-item"><span class="news-date">Jan 2026</span> Received an <a class="news-link" href="https://www.ams.org/student-travel" target="_blank" rel="noopener noreferrer">AMS Graduate Student Travel Award</a> for my invited talk at the <a class="news-link" href="https://jointmathematicsmeetings.org/meetings/national/jmm2026/jmm2026-home" target="_blank" rel="noopener noreferrer">Joint Mathematics Meetings (JMM)</a> in Washington, D.C.</li>
+            <li class="news-item"><span class="news-date">Dec 2025</span> Third Place in the Poster &amp; Short Talks Competition at <a class="news-link" href="https://sites.google.com/view/data-science-week-2025/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University</li>
+            <li class="news-item"><span class="news-date">Nov 2025</span> Won the <a class="news-link" href="https://amath.unc.edu/math-new/unc-chapel-hill-department-of-mathematics-wins-several-awards-at-tricams/" target="_blank" rel="noopener noreferrer">Poster &amp; Lightning Talk Prize</a>, selected across all participating Ph.D. students (~53), at <a class="news-link" href="https://stsynkov.math.ncsu.edu/tricams2025/" target="_blank" rel="noopener noreferrer">TriCAMS</a>, NC State</li>
+            <li class="news-item"><span class="news-date">Sep 2025</span> Our protein design work was featured in <a class="news-link" href="https://www.unc.edu/posts/2025/09/16/ai-acceleration-program-helps-student-design-proteins/" target="_blank" rel="noopener noreferrer">UNC News</a> and <a class="news-link" href="https://its.unc.edu/2025/09/12/amartya-banerjee-protein-design-aiap/" target="_blank" rel="noopener noreferrer">ITS News</a></li>
+            <li class="news-item"><span class="news-date">Sep 2025</span> Co-organized the <a class="news-link" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen</li>
+            <li class="news-item"><span class="news-date">Aug 2025</span> <a class="news-link" href="https://arxiv.org/abs/2507.21260" target="_blank" rel="noopener noreferrer">Adam-PnP</a> was accepted at <span class="font-medium">IEEE CAMSAP 2025</span></li>
+            <li class="news-item"><span class="news-date">May 2025</span> Awarded an <a class="news-link" href="https://aiacceleration.unc.edu/" target="_blank" rel="noopener noreferrer">AIAP</a> Cloud Resource Grant (~$40,000) with Prof. Harlin Lee</li>
+            <li class="news-item"><span class="news-date">May 2025</span> Interned at <span class="font-medium">Amazon</span> (Prime Video &amp; Studios CoreTech) on demand forecasting for dynamic pricing</li>
+            <li class="news-item"><span class="news-date">Feb 2025</span> Received the <a class="news-link" href="https://mathworkshops.wixsite.com/statsandot2025" target="_blank" rel="noopener noreferrer">Statistics and Optimal Transport Workshop</a> Travel Award, Columbia University</li>
+            <li class="news-item"><span class="news-date">Jan 2025</span> <a class="news-link" href="https://proceedings.mlr.press/v258/banerjee25a.html" target="_blank" rel="noopener noreferrer">Efficient Trajectory Inference in Wasserstein Space</a> was accepted at <span class="font-medium">AISTATS 2025</span></li>
+            <li class="news-item"><span class="news-date">Dec 2024</span> First Place in the Poster &amp; Short Talks Competition at <a class="news-link" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University</li>
+            <li class="news-item"><span class="news-date">Oct 2024</span> Our work on trajectory inference was covered by <a class="news-link" href="https://www.siam.org/publications/siam-news/articles/novel-algorithm-infers-particle-trajectories-in-cell-point-clouds/" target="_blank" rel="noopener noreferrer">SIAM News</a></li>
+            <li class="news-item"><span class="news-date">Oct 2024</span> <a class="news-link" href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank" rel="noopener noreferrer">Poster presentation prize (Second Place)</a> at <a class="news-link" href="https://sdis.unc.edu/event/datascienceday2024/" target="_blank" rel="noopener noreferrer">UNC Data Science Day</a></li>
+            <li class="news-item"><span class="news-date">Aug 2024</span> Received the <a class="news-link" href="https://www.siam.org/conferences-events/past-event-archive/mds24/" target="_blank" rel="noopener noreferrer">SIAM MDS24</a> Travel Award</li>
+            <li class="news-item"><span class="news-date">May 2024</span> Visiting research intern at the Chi Lab, Carnegie Mellon University, hosted by <a class="news-link" href="https://yuejiechi.github.io/" target="_blank" rel="noopener noreferrer">Prof. Yuejie Chi</a> (now at Yale), working on diffusion models for protein backbone generation</li>
         </ul>
       </div>
     </section>
 
     <!-- Research / Publications -->
     <section id="research" class="mb-16">
-      <div class="flex items-center justify-between mb-4">
-        <h2 class="section-heading border-b border-slate-200 pb-2 dark:border-slate-700">Research</h2>
-        <div class="flex items-center gap-2">
-          <label for="search" class="sr-only">Search publications</label>
-          <input id="search" type="search" placeholder="Search title/authors" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-64 bg-white text-slate-900 placeholder-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-400" />
-          <select id="year-filter" class="rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white text-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100">
-            <option value="all">All years</option>
-          </select>
+      <div class="mb-6 border-b border-slate-200 pb-3 dark:border-slate-700">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <h2 class="section-heading">Research</h2>
+          <div class="flex items-center gap-2">
+            <label for="search" class="sr-only">Search publications</label>
+            <input id="search" type="search" placeholder="Search title/authors" class="rounded-lg border border-slate-300 px-3 py-2 text-sm w-full sm:w-64 bg-white text-slate-900 placeholder-slate-500 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-400" />
+            <select id="year-filter" class="rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white text-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-100">
+              <option value="all">All years</option>
+            </select>
+          </div>
         </div>
       </div>
       <div id="publications-container" class="space-y-12"></div>
     </section>
 
-    <!-- Experience & Awards -->
+    <!-- Experience -->
+    <section id="experience" class="mb-16">
+      <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Experience</h2>
+
+      <div class="space-y-4">
+        <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border-l-4 border-amber-400">
+          <div class="flex items-start justify-between gap-3">
+            <p class="font-semibold"><a href="https://www.amazon.science/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Amazon</a>, Seattle</p>
+            <span class="text-xs whitespace-nowrap text-slate-500 dark:text-slate-400 mt-1">Summer 2026</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Applied Scientist, Prime Video &amp; Studios CoreTech</p>
+          <p class="text-xs font-medium text-amber-700 dark:text-amber-400 mt-2">Representation Learning · LLM Post-Training · Information Retrieval · Recommender Systems</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">Investigated whether preference feedback can supervise retrieval without touching the underlying language model. Formulated a feedback-supervised, contrastively trained two-tower objective that embeds LLM-generated interest representations and customer viewing histories in a shared space. Established consistent full-catalog gains in recall, NDCG, and MRR over a frozen semantic-retrieval baseline, showing that feedback-driven personalization is attainable without LLM fine-tuning.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border-l-4 border-amber-400">
+          <div class="flex items-start justify-between gap-3">
+            <p class="font-semibold"><a href="https://www.amazon.science/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Amazon</a>, Seattle</p>
+            <span class="text-xs whitespace-nowrap text-slate-500 dark:text-slate-400 mt-1">Summer 2025</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Applied Scientist, Prime Video &amp; Studios CoreTech</p>
+          <p class="text-xs font-medium text-amber-700 dark:text-amber-400 mt-2">Causal Inference · Reinforcement Learning · Decision-Making under Uncertainty</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">Studied demand forecasting for dynamic pricing when the training data is confounded by the historical pricing policy that generated it. Combined counterfactual demand modeling with reinforcement learning, and derived tunable online correction layers that debias logged-policy effects while adapting to distribution shift. Improved WAPE, MAPE, and MAE, and materially reduced how often models must be retrained.</p>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border-l-4 border-amber-400">
+          <div class="flex items-start justify-between gap-3">
+            <p class="font-semibold"><a href="https://www.howso.com/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Howso Corporation</a>, Raleigh</p>
+            <span class="text-xs whitespace-nowrap text-slate-500 dark:text-slate-400 mt-1">Summer 2023</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-0.5">Machine Learning Research Intern</p>
+          <p class="text-xs font-medium text-amber-700 dark:text-amber-400 mt-2">Information Theory · Nonparametric Learning · Robustness</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">Worked on anomaly detection inside Howso's nonparametric, nearest-neighbor learning framework, scoring observations by surprisal rather than by scaled distance. Benchmarked it across a broad set of tabular datasets against a wide range of baselines, spanning traditional methods such as Isolation Forest through to deep models like Deep SVDD, and studied how well it holds up under adversarial perturbations. The method is now part of the open-source Howso Engine, and the work led to a <a href="https://arxiv.org/abs/2311.10246" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">first-author preprint</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards & Grants -->
     <div class="grid md:grid-cols-2 gap-10">
-      <section id="experience">
-        <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Professional Experience</h2>
-        <div class="space-y-4">
-          <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm">
-            <p class="font-semibold"><a href="https://www.amazon.science/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Amazon, Seattle</a></p>
-            <p class="text-sm text-slate-600 dark:text-slate-300">Applied Scientist (Prime Video & Studios CoreTech), Summer 2025</p>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Topic: Causal Inference and Reinforcement Learning</p>
+      <section id="awards">
+        <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Selected Awards &amp; Honors</h2>
+        <div class="space-y-3">
+          <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+            <p class="font-semibold">Third Place in Poster &amp; Short Talks Competition at <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/view/data-science-week-2025/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2025)</span></p>
           </div>
-          <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm">
-            <p class="font-semibold"><a href="https://www.cmu.edu/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Carnegie Mellon University, Pittsburgh</a></p>
-            <p class="text-sm text-slate-600 dark:text-slate-300">Visiting Researcher, Summer 2024</p>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Topic: Diffusion Models and Inverse Problems</p>
+          <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://amath.unc.edu/math-new/unc-chapel-hill-department-of-mathematics-wins-several-awards-at-tricams/" target="_blank" rel="noopener noreferrer">Poster &amp; Lightning Talk Prize</a> at <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://stsynkov.math.ncsu.edu/tricams2025/" target="_blank" rel="noopener noreferrer">TriCAMS</a>, NC State <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2025)</span></p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Selected across all participating Ph.D. students (~53)</p>
           </div>
-          <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm">
-            <p class="font-semibold"><a href="https://www.howso.com/" class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer">Howso (Formerly Diveplane)</a></p>
-            <p class="text-sm text-slate-600 dark:text-slate-300">Research Intern, Summer 2023</p>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Topic: Anomaly Detection</p>
+          <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+            <p class="font-semibold">First Place in Poster &amp; Short Talks Competition at <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2024)</span></p>
+          </div>
+          <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sdis.unc.edu/event/datascienceday2024/" target="_blank" rel="noopener noreferrer">Data Science Day</a> <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://tarheels.live/cmoosm/2024/10/04/unc-data-science-day-poster-presentations/" target="_blank" rel="noopener noreferrer">Poster Prize, Second Place</a> <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2024)</span></p>
+          </div>
+          <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://www.cs.umd.edu/education/scholarships" target="_blank" rel="noopener noreferrer">John D. Gannon Endowed Scholarship</a> <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2018)</span></p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Only international student to receive this merit-based award that year</p>
           </div>
         </div>
       </section>
 
-      <section id="awards">
-        <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Selected Awards</h2>
+      <section id="grants">
+        <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Grants &amp; Travel Awards</h2>
         <div class="space-y-3">
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">Columbia University Optimal Transport and Statistics Workshop Travel Award <span class="text-sm text-slate-500 dark:text-slate-400">(2025)</span></p>
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://www.ams.org/student-travel" target="_blank" rel="noopener noreferrer">AMS Graduate Student Travel Award</a> for <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://jointmathematicsmeetings.org/meetings/national/jmm2026/jmm2026-home" target="_blank" rel="noopener noreferrer">JMM</a> <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2026)</span></p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">~$1,450</p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">First Place in Poster & Short Talks Competition at <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/view/data-science-week-2024/posters-and-short-talks" target="_blank" rel="noopener noreferrer">Data Science Week</a>, Purdue University <span class="text-sm text-slate-500 dark:text-slate-400">(2024)</span></p>
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://aiacceleration.unc.edu/" target="_blank" rel="noopener noreferrer">AIAP</a> Cloud Resource Grant with Prof. Harlin Lee <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2025)</span></p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">~$40,000 in compute resources</p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">SDSS Data Science Day Poster Presentation Prize <span class="text-sm text-slate-500 dark:text-slate-400">(2024)</span></p>
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://gradschool.unc.edu/funding/gradschool/transportationgrant/" target="_blank" rel="noopener noreferrer">UNC Graduate Student Transportation Grant</a> <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2025)</span></p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">$3,000 for conference travel</p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">SIAM MDS24 Travel Award <span class="text-sm text-slate-500 dark:text-slate-400">(2024)</span></p>
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://siamnnp2025.sciencesconf.org/" target="_blank" rel="noopener noreferrer">SIAM NNP</a> Student Travel Support, Penn State <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2025)</span></p>
           </div>
           <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
-            <p class="font-semibold">John D. Gannon Endowed Scholarship <span class="text-sm text-slate-500 dark:text-slate-400">(2018)</span></p>
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://mathworkshops.wixsite.com/statsandot2025" target="_blank" rel="noopener noreferrer">Statistics and Optimal Transport Workshop</a> Travel Grant, Columbia University <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2025)</span></p>
+          </div>
+          <div class="bg-white dark:bg-slate-800 p-3 rounded-xl shadow-sm">
+            <p class="font-semibold"><a class="text-blue-600 hover:underline dark:text-blue-400" href="https://www.siam.org/conferences-events/past-event-archive/mds24/" target="_blank" rel="noopener noreferrer">SIAM MDS24</a> Travel Award <span class="text-sm font-normal text-slate-500 dark:text-slate-400">(2024)</span></p>
           </div>
         </div>
       </section>
     </div>
+
+    <!-- Talks -->
+    <section id="talks" class="mb-16">
+      <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Invited Talks &amp; Presentations</h2>
+      <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm divide-y divide-slate-100 dark:divide-slate-700">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Jan 2026</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://jointmathematicsmeetings.org/meetings/national/jmm2026/jmm2026-home">Joint Mathematics Meetings (JMM)</a></span>, Washington, D.C. <span class="text-slate-500 dark:text-slate-400">&middot; Invited talk</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Nov 2025</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://stsynkov.math.ncsu.edu/tricams2025/">TriCAMS</a></span>, NC State University <span class="text-slate-500 dark:text-slate-400">&middot; Poster presentation</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Oct 2025</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://siamnnp2025.sciencesconf.org/">SIAM-NNP Annual Meeting</a></span>, Penn State University <span class="text-slate-500 dark:text-slate-400">&middot; Minisymposium talk</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Feb &amp; Nov 2025</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://www.med.unc.edu/compmed/event/research-in-progress-amartya-banerjee-moosmueller-and-lee-labs/">Comp Med Seminar</a></span>, UNC Chapel Hill <span class="text-slate-500 dark:text-slate-400">&middot; Research talk</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Mar 2025</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://mathworkshops.wixsite.com/statsandot2025">Statistics and Optimal Transport Workshop</a></span>, Columbia University <span class="text-slate-500 dark:text-slate-400">&middot; Poster presentation</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Jan 2025</span>
+          <p class="text-sm"><span class="font-medium">Research Seminar</span>, IIT Bombay <span class="text-slate-500 dark:text-slate-400">&middot; Invited talk</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Oct 2024</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://www.siam.org/conferences-events/past-event-archive/mds24/">SIAM Conference on Mathematics of Data Science (MDS24)</a></span>, Atlanta, Georgia <span class="text-slate-500 dark:text-slate-400">&middot; Poster presentation</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Oct 2024</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://math.unc.edu/tricams/">TriCAMS</a></span>, UNC Chapel Hill <span class="text-slate-500 dark:text-slate-400">&middot; Poster presentation</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Sep 2023, Oct 2024</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://sdis.unc.edu/event/datascienceday2024/">Data Science Day</a></span>, UNC Chapel Hill <span class="text-slate-500 dark:text-slate-400">&middot; Poster presentation</span></p>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 p-4">
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 sm:w-44 shrink-0">Nov 2023</span>
+          <p class="text-sm"><span class="font-medium"><a class="text-blue-600 hover:underline dark:text-blue-400" target="_blank" rel="noopener noreferrer" href="https://sites.math.duke.edu/~jonm/Tricams/">TriCAMS</a></span>, Duke University <span class="text-slate-500 dark:text-slate-400">&middot; Poster presentation</span></p>
+        </div>
+      </div>
+    </section>
 
     <section id="miscellaneous" class="mt-12 mb-16">
       <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Miscellaneous</h2>
       <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
         <ul class="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-200">
           <li><span class="font-bold">Workshop Organizer:</span> Co-organized the <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen (Sept 2025)</li>
-          <li><span class="font-bold">Reviewer:</span> NeurIPS 2025, CAMSAP 2025, Learning on Graphs (LoG) 2025</li>
-          <li><span class="font-bold">Teaching Recitations:</span> DATA110 Introduction to Data Science (AY 2024, 2025)</li>
+          <li><span class="font-bold">Reviewer:</span> NeurIPS 2026, NeurIPS 2025, CAMSAP 2025, Learning on Graphs (LoG) 2025</li>
+          <li><span class="font-bold">Teaching Assistant:</span> DATA110 Introduction to Data Science, UNC Chapel Hill (AY 2024, 2025)
             <ul class="list-none ml-6 mt-1 space-y-1">
-              <li class="before:content-['-'] before:mr-2">Serving as Head TA, leading recitation sections and overseeing a team of undergraduate and graduate teaching assistants.</li>
-              <li class="before:content-['-'] before:mr-2">Assisting in course management: Coordinating grading logistics, student support, office hours scheduling, and providing feedback to students on coursework & class projects.</li>
+              <li class="before:content-['-'] before:mr-2">Served as Head TA, leading recitation sections and overseeing a team of undergraduate and graduate teaching assistants.</li>
+              <li class="before:content-['-'] before:mr-2">Assisted in course management: coordinating grading logistics, student support, office hours scheduling, and providing feedback to students on coursework &amp; class projects.</li>
             </ul>
           </li>
-          <li><span class="font-bold">Memberships:</span> SIAM Graduate Student Chapter, UNC Chapel Hill</li>
+          <li><span class="font-bold">Teaching Assistant:</span> MATH401 Applications of Linear Algebra, UMD College Park (2020)</li>
+          <li><span class="font-bold">Memberships:</span> SIAM Graduate Student Chapter, UNC Chapel Hill (2023 – present)</li>
         </ul>
       </div>
     </section>
@@ -278,7 +460,7 @@
   <!-- Footer -->
   <footer class="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 mt-16">
     <div class="container mx-auto px-6 py-8 text-center text-slate-600 dark:text-slate-400">
-      <p>&copy; <span id="current-year"></span> Amartya Banerjee. All rights reserved.</p>
+      <p>&copy; Amartya Banerjee. All rights reserved.</p>
     </div>
   </footer>
 
@@ -288,6 +470,47 @@
   <script>
     // ---- Publications data  ----
     const publications = [
+
+      {
+      id: 'tac-2026',
+      year: '2026',
+      venue: 'Preprint · Under review',
+      title: 'Static Alignment Is Not Enough: Alignment Claims Should Be Temporal Contracts',
+      authors: '<strong>Amartya Banerjee</strong>*, Anneliese Brei*, Snehalkumar &lsquo;Neil&rsquo; S. Gaikwad, Snigdha Chaturvedi. <span class="text-xs text-slate-500 dark:text-slate-400">(* equal contribution)</span>',
+      pdfLink: 'https://www.researchgate.net/profile/Anneliese-Brei-2/publication/404733510_Static_Alignment_Is_Not_Enough_Alignment_Claims_Should_Be_Temporal_Contracts/links/6a022ef8eb09b81b1a2e1a15/Static-Alignment-Is-Not-Enough-Alignment-Claims-Should-Be-Temporal-Contracts.pdf',
+      imageSrc: 'images/teaser_fig/temporal_alignment_contract.png',
+      links: [],
+      abstract: `Efforts to align AI with human values have traditionally focused on designing models that satisfy fixed benchmarks of desirable behavior. However, this static framing overlooks the pluralistic, context-dependent, and evolving nature of human preferences. Fairness criteria cannot all be satisfied simultaneously, no single algorithm can optimize for all objectives, and formalization loses the social context that alignment depends on. We argue that alignment should therefore be re-conceptualized as a temporal, auditable, and revisable contract. In the absence of assumptions about deployment environments, no single static alignment certification can be guaranteed to satisfy all preference instances. Towards this vision, we introduce Temporal Alignment Contract (TAC), a time-indexed tuple formalism with six dynamic components. TAC is a claim-layer formalism that specifies how alignment claims should be documented, evaluated, and revised over time. As a time-indexed auditable contract, TAC paves the way for continuous verification of AI alignment.`,
+      bibtex: `@misc{banerjee2026staticalignment,
+      title={Static Alignment Is Not Enough: Alignment Claims Should Be Temporal Contracts},
+      author={Amartya Banerjee and Anneliese Brei and Snehalkumar 'Neil' S. Gaikwad and Snigdha Chaturvedi},
+      year={2026},
+      note={Under review},
+      }`
+      },
+
+      {
+      id: 'vector-2025',
+      year: '2025',
+      venue: 'Preprint · Under review',
+      title: 'VECTOR+: Valid Property-Enhanced Contrastive Learning for Targeted Optimization & Resampling for Novel Drug Design',
+      authors: '<strong>Amartya Banerjee</strong>*, Somnath Kar*, Anirban Pal*, Debabrata Maiti. <span class="text-xs text-slate-500 dark:text-slate-400">(* equal contribution)</span>',
+      pdfLink: 'https://arxiv.org/abs/2509.00684',
+      imageSrc: 'images/teaser_fig/vector_new_compounds.png',
+      links: [
+        { name: 'Code', url: 'https://github.com/amartya21/vector-drug-design', color: 'green' }
+      ],
+      abstract: `Efficiently steering generative models toward pharmacologically relevant regions of chemical space remains a major obstacle in molecular drug discovery under low-data regimes. We present VECTOR+: Valid-property-Enhanced Contrastive Learning for Targeted Optimization and Resampling, a framework that couples property-guided representation learning with controllable molecule generation. VECTOR+ applies to both regression and classification tasks and enables interpretable, data-efficient exploration of functional chemical space. We evaluate on two datasets: a curated PD-L1 inhibitor set (296 compounds with experimental IC50 values) and a receptor kinase inhibitor set (2,056 molecules by binding mode). Despite limited training data, VECTOR+ generates novel, synthetically tractable candidates. Against PD-L1 (PDB 5J89), 100 of 8,374 generated molecules surpass a docking threshold of −15.0 kcal/mol, with the best scoring −17.6 kcal/mol compared to the top reference inhibitor (−15.4 kcal/mol). The best-performing molecules retain the conserved biphenyl pharmacophore while introducing novel motifs. Molecular dynamics (250 ns) confirm binding stability (ligand RMSD &lt; 2.5 angstroms). VECTOR+ generalizes to kinase inhibitors, producing compounds with stronger docking scores than established drugs such as brigatinib and sorafenib. Benchmarking against JT-VAE and MolGPT across docking, novelty, uniqueness, and Tanimoto similarity highlights the superior performance of our method. These results position our work as a robust, extensible approach for property-conditioned molecular design in low-data settings, bridging contrastive learning and generative modeling for reproducible, AI-accelerated discovery.`,
+      bibtex: `@misc{banerjee2025vectorvalidpropertyenhanced,
+      title={Valid Property-Enhanced Contrastive Learning for Targeted Optimization & Resampling for Novel Drug Design},
+      author={Amartya Banerjee and Somnath Kar and Anirban Pal and Debabrata Maiti},
+      year={2025},
+      eprint={2509.00684},
+      archivePrefix={arXiv},
+      primaryClass={q-bio.BM},
+      url={https://arxiv.org/abs/2509.00684},
+      }`
+      },
 
       {
       id: 'adam-pnp-2025',
@@ -408,12 +631,17 @@
           <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-xs ${colorClasses[link.color] || colorClasses.slate} px-3 py-1 rounded-full transition-colors">${link.name}</a>
         `).join('');
 
-        return `
-        <article class="flex flex-col md:flex-row gap-6 items-start">
+        // Teaser image is optional; entries without one render full width
+        // rather than showing a broken-image placeholder.
+        const imageHtml = p.imageSrc ? `
           <div class="w-full md:w-1/4">
             <img src="${p.imageSrc}" alt="Teaser for ${p.title}" class="rounded-lg shadow w-full" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image+Not+Found';" />
-          </div>
-          <div class="w-full md:w-3/4">
+          </div>` : '';
+
+        return `
+        <article class="flex flex-col md:flex-row gap-6 items-start">
+          ${imageHtml}
+          <div class="w-full ${p.imageSrc ? 'md:w-3/4' : ''}">
             <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">${p.venue} ${p.year}</p>
             <h3 class="text-xl font-semibold mb-1">
               <a href="${p.pdfLink}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-400">${p.title}</a>
@@ -549,9 +777,6 @@
           themeToggle.style.transform = 'scale(1)';
         }, 100);
       });
-
-      // Footer dates
-      document.getElementById('current-year').textContent = 2025;
 
       // Back to top button
       const backTop = document.getElementById('back-to-top');
