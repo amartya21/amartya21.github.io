@@ -21,13 +21,13 @@
   <meta name="twitter:description" content="Ph.D. Student, UNC Chapel Hill – Optimal Transport, ML" />
   <meta name="twitter:image" content="images/amartya.jpeg" />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-52138338-2"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CX27QZC0S7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-52138338-2');
+    gtag('config', 'G-CX27QZC0S7');
   </script>
 
   <!-- Favicon -->
@@ -58,12 +58,7 @@
       font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
 
-    /* Text selection.
-       Without an explicit `color` the browser paints its highlight *behind* each
-       element's own text colour, so muted grey and amber text wash out when
-       selected (worst in dark mode). Setting both halves of the pair fixes it.
-       ::selection and ::-moz-selection must stay in separate rules: a browser
-       that doesn't recognise one selector would otherwise drop the whole block. */
+    /* Text selection */
     ::selection {
       background-color: #bfdbfe; /* blue-200 */
       color: #0f172a;            /* slate-900 */
@@ -80,10 +75,7 @@
       background-color: #1d4ed8;
       color: #f8fafc;
     }
-    /* Collapsible panels.
-       The :not(.show) / .show selectors are two classes deep on purpose: they must
-       outrank Tailwind's single-class utilities (p-4, mt-3, border), whose stylesheet
-       the CDN injects after this block. */
+    /* Collapsible panels */
     .collapsible-content {
       overflow: hidden;
       transition: max-height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
@@ -305,7 +297,7 @@
 
     <!-- Experience -->
     <section id="experience" class="mb-16">
-      <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Experience</h2>
+      <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Industry Experience</h2>
 
       <div class="space-y-4">
         <div class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm border-l-4 border-amber-400">
@@ -442,16 +434,16 @@
       <h2 class="section-heading mb-4 border-b border-slate-200 pb-2 dark:border-slate-700">Miscellaneous</h2>
       <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
         <ul class="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-200">
-          <li><span class="font-bold">Workshop Organizer:</span> Co-organized the <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen (Sept 2025)</li>
-          <li><span class="font-bold">Reviewer:</span> NeurIPS 2026, NeurIPS 2025, CAMSAP 2025, Learning on Graphs (LoG) 2025</li>
-          <li><span class="font-bold">Teaching Assistant:</span> DATA110 Introduction to Data Science, UNC Chapel Hill (AY 2024, 2025)
+          <li><span class="font-semibold">Workshop Organizer:</span> Co-organized the <a class="text-blue-600 hover:underline dark:text-blue-400" href="https://sites.google.com/cs.unc.edu/aligning-ai-with-society/home" target="_blank" rel="noopener noreferrer">Aligning AI with Society workshop</a> with University of Tübingen <span class="text-sm text-slate-500 dark:text-slate-400">(Sep 2025)</span></li>
+          <li><span class="font-semibold">Reviewer:</span> NeurIPS 2026, NeurIPS 2025, CAMSAP 2025, Learning on Graphs (LoG) 2025</li>
+          <li><span class="font-semibold">Teaching Assistant:</span> DATA110 Introduction to Data Science, UNC Chapel Hill <span class="text-sm text-slate-500 dark:text-slate-400">(2024, 2025)</span>
             <ul class="list-none ml-6 mt-1 space-y-1">
               <li class="before:content-['-'] before:mr-2">Served as Head TA, leading recitation sections and overseeing a team of undergraduate and graduate teaching assistants.</li>
               <li class="before:content-['-'] before:mr-2">Assisted in course management: coordinating grading logistics, student support, office hours scheduling, and providing feedback to students on coursework &amp; class projects.</li>
             </ul>
           </li>
-          <li><span class="font-bold">Teaching Assistant:</span> MATH401 Applications of Linear Algebra, UMD College Park (2020)</li>
-          <li><span class="font-bold">Memberships:</span> SIAM Graduate Student Chapter, UNC Chapel Hill (2023 – present)</li>
+          <li><span class="font-semibold">Teaching Assistant:</span> MATH401 Applications of Linear Algebra, UMD College Park <span class="text-sm text-slate-500 dark:text-slate-400">(2020)</span></li>
+          <li><span class="font-semibold">Memberships:</span> SIAM Graduate Student Chapter, UNC Chapel Hill <span class="text-sm text-slate-500 dark:text-slate-400">(2023 – present)</span></li>
         </ul>
       </div>
     </section>
@@ -461,6 +453,11 @@
   <footer class="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 mt-16">
     <div class="container mx-auto px-6 py-8 text-center text-slate-600 dark:text-slate-400">
       <p>&copy; Amartya Banerjee. All rights reserved.</p>
+      <p class="mt-3 text-xs text-slate-500 dark:text-slate-500 max-w-2xl mx-auto leading-relaxed">
+        This site uses Google Analytics, which sets cookies to collect anonymous usage data such as pages viewed and approximate location.
+        No personally identifying information is collected.
+        <a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener noreferrer" class="underline hover:text-slate-700 dark:hover:text-slate-300">How Google uses this data</a>.
+      </p>
     </div>
   </footer>
 
@@ -631,8 +628,7 @@
           <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-xs ${colorClasses[link.color] || colorClasses.slate} px-3 py-1 rounded-full transition-colors">${link.name}</a>
         `).join('');
 
-        // Teaser image is optional; entries without one render full width
-        // rather than showing a broken-image placeholder.
+        // Optional teaser image
         const imageHtml = p.imageSrc ? `
           <div class="w-full md:w-1/4">
             <img src="${p.imageSrc}" alt="Teaser for ${p.title}" class="rounded-lg shadow w-full" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e2e8f0/334155?text=Image+Not+Found';" />
